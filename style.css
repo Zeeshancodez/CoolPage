@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+body{
+    margin: 0;
+    font-family: 'Lobster', cursive;
+    background-color: #010001;
+    color: #fff;
+}
+.container-fuild{
+    height: 100vh;
+    overflow-x: hidden;
+    perspective: 20px;
+}
+.banner{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transform-style: preserve-3d;
+}
+.bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url(bg.jpg);
+    background-size: cover;
+    background-position: center;
+    transform: translateZ(-10px) scale(1.);
+}
+.bg::before{
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    content: '';
+    background-image: linear-gradient(
+        to top, #010001, transparent
+    );
+    bottom: 0;
+}
+.content{
+    font-size: xxx-large;
+    transform: translateZ(10px)
+}
+.container{
+    width: 1200px;
+    max-width: 100%;
+    margin: auto;
+    padding-bottom: 100px;
+}
+header{
+    position: absolute;
+    top: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 1200px;
+    max-width: 100%;
+    padding: 40px 0;
+}
+header .logo{
+    font-size: xx-large;
+}
+header .signin{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+header button{
+    background-color: #010001;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: end;
+}
+nav ul li{
+    padding: 10px;
+}
+.library{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 100px);
+    margin-top: 100px;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+.library .item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(bg1.jpg);
+    background-size: cover;
+    transition: 0.5s;
+    opacity: 0;
+    transition-delay: 0.3s;
+}
+.library .item:nth-child(2){
+    background-image: url(bg2.jpg);
+    transition-delay: 0.5s;
+}
+.library .item:nth-child(3){
+    background-image: url(bg3.jpg);
+    transition-delay: 0.7s;
+}
+.library .item:nth-child(4){
+    background-image: url(bg4.jpg);
+    transition-delay: 0.9s;
+}
+.des{
+    width: 70%;
+    text-align: center;
+    margin: 100px auto;
+    transition: 0.5s;
+    transform: translateY(30px);
+    opacity: 0;
+}
+.library.active .item{
+    opacity: 1;
+}
+.des.active{
+    opacity: 1;
+    transform: translateY(0px);
+}
